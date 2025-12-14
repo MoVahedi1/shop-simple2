@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه روغن‌های ملکوتی | خرید آنلاین</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#d4af37',
+                        primaryDark: '#b59325', // برای هاور و متون رنگی تیره‌تر
+                        secondary: '#f3f4f6', 
+                        dark: '#0f172a', // مشکی با ته‌مایه آبی تیره برای خوانایی بهتر
+                        textMain: '#1f2937', // خاکستری خیلی تیره برای متن اصلی
+                        textLight: '#4b5563', // خاکستری متوسط برای توضیحات
+                        danger: '#dc2626',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            background-color: #f9fafb; 
+            /* بهبود رندر فونت در مرورگرها */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+            border-color: #d4af37;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+    </style>
+</head>
+<body class="font-sans text-textMain antialiased pb-20 md:pb-0">
+
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <div class="bg-dark text-white text-sm py-2 hidden md:block font-medium">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <span><i class="fas fa-truck text-primary ml-2"></i> ارسال رایگان سفارش‌های بالای ۱ میلیون تومان</span>
+                <span class="font-bold"><i class="fas fa-phone-alt text-primary ml-2"></i> ۰۲۱-۸۸۸۸۰۰۰۰</span>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <a href="#" class="flex flex-col items-center flex-shrink-0">
+                <span class="text-3xl font-black text-black tracking-tighter">MALAKOOTI</span>
+                <span class="text-xs text-primaryDark font-extrabold tracking-[0.2em] uppercase mt-1">Organic Oils</span>
+            </a>
+
+            <div class="hidden md:flex flex-1 max-w-2xl relative mx-8">
+                <input type="text" placeholder="جستجو در نام روغن، خواص یا برند..." class="search-input w-full bg-gray-100 text-gray-900 font-medium placeholder-gray-500 rounded-lg px-4 py-3 pr-12 outline-none border border-gray-200 transition focus:bg-white focus:text-black">
+                <button class="absolute right-0 top-0 h-full w-12 text-gray-500 hover:text-primaryDark">
+                    <i class="fas fa-search text-xl"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#" class="hidden md:flex items-center gap-2 text-sm font-bold text-gray-700 hover:bg-gray-100 hover:text-black px-4 py-2.5 rounded-lg border border-gray-300 transition">
+                    <i class="fas fa-user text-gray-600"></i>
+                    ورود | ثبت‌نام
+                </a>
+                <a href="#" class="relative p-2.5 text-gray-700 hover:text-primaryDark transition group">
+                    <i class="fas fa-shopping-cart text-2xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-danger text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">۲</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="border-t border-gray-100 hidden md:block bg-white">
+            <div class="container mx-auto px-4">
+                <ul class="flex items-center gap-8 text-base font-bold text-gray-600 py-3">
+                    <li class="text-black flex items-center gap-2 cursor-pointer hover:text-primaryDark"><i class="fas fa-bars"></i> دسته‌بندی‌ها</li>
+                    <li><a href="#" class="hover:text-primaryDark hover:bg-gray-50 px-3 py-2 rounded-md transition">روغن‌های درمانی</a></li>
+                    <li><a href="#" class="hover:text-primaryDark hover:bg-gray-50 px-3 py-2 rounded-md transition">مراقبت پوست</a></li>
+                    <li><a href="#" class="hover:text-primaryDark hover:bg-gray-50 px-3 py-2 rounded-md transition">مراقبت مو</a></li>
+                    <li><a href="#" class="hover:text-primaryDark hover:bg-gray-50 px-3 py-2 rounded-md transition">پکیج‌ها</a></li>
+                    <li class="mr-auto text-danger flex items-center gap-2 cursor-pointer bg-red-50 px-3 py-1 rounded-full"><i class="fas fa-fire"></i> <span class="text-sm">فروش ویژه</span></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="md:hidden px-4 pb-3">
+             <div class="relative w-full">
+                <input type="text" placeholder="جستجو محصول..." class="w-full bg-gray-100 text-gray-900 text-sm font-medium rounded-lg px-4 py-2.5 pr-10 outline-none border border-gray-200 focus:bg-white focus:border-primary">
+                <i class="fas fa-search absolute right-3 top-3 text-gray-500"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="container mx-auto px-4 mt-6">
+        <div class="swiper mainSlider rounded-2xl overflow-hidden shadow-md">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1920&auto=format&fit=crop" class="w-full h-[220px] md:h-[420px] object-cover" alt="Banner 1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex items-center pr-6 md:pr-16">
+                        <div class="text-white max-w-xl drop-shadow-lg">
+                            <span class="bg-primary text-black px-3 py-1 text-sm font-extrabold rounded mb-3 inline-block shadow-lg">تخفیف ۳۰ درصدی</span>
+                            <h2 class="text-3xl md:text-6xl font-black mb-4 leading-tight">اکسیر جوانی ملکوتی</h2>
+                            <p class="text-base md:text-xl font-medium mb-8 opacity-100 hidden md:block text-gray-100">شادابی پوست با فرمولاسیون ۱۰۰٪ گیاهی و تضمینی</p>
+                            <a href="#" class="bg-white text-black hover:bg-primary transition px-8 py-3 rounded-xl font-extrabold text-base md:text-lg shadow-xl inline-flex items-center gap-2">
+                                مشاهده و خرید <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-right">
+                <i class="fas fa-gem text-3xl text-primary mb-2 md:mb-0"></i>
+                <div>
+                    <h4 class="font-extrabold text-gray-900 text-sm md:text-base">تضیمن اصالت کالا</h4>
+                    <p class="text-xs md:text-sm font-medium text-gray-600 mt-1">۱۰۰٪ خالص و ارگانیک</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-right">
+                <i class="fas fa-shipping-fast text-3xl text-primary mb-2 md:mb-0"></i>
+                <div>
+                    <h4 class="font-extrabold text-gray-900 text-sm md:text-base">ارسال سریع</h4>
+                    <p class="text-xs md:text-sm font-medium text-gray-600 mt-1">تحویل اکسپرس تهران</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-right">
+                <i class="fas fa-shield-alt text-3xl text-primary mb-2 md:mb-0"></i>
+                <div>
+                    <h4 class="font-extrabold text-gray-900 text-sm md:text-base">۷ روز ضمانت</h4>
+                    <p class="text-xs md:text-sm font-medium text-gray-600 mt-1">بازگشت بی‌قید و شرط</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-right">
+                <i class="fas fa-headset text-3xl text-primary mb-2 md:mb-0"></i>
+                <div>
+                    <h4 class="font-extrabold text-gray-900 text-sm md:text-base">مشاوره تخصصی</h4>
+                    <p class="text-xs md:text-sm font-medium text-gray-600 mt-1">پاسخگویی تا ۱۲ شب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 mb-10">
+        <h3 class="font-black text-xl mb-6 text-black flex items-center gap-2">
+            <span class="w-3 h-8 bg-primary rounded-sm block"></span>
+            دسته‌بندی‌های محبوب
+        </h3>
+        <div class="flex gap-6 overflow-x-auto pb-6 scrollbar-hide px-2">
+            <div class="flex flex-col items-center gap-3 min-w-[90px] group cursor-pointer">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-primary/30 group-hover:border-primary group-hover:scale-105 transition shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?q=80&w=200&auto=format&fit=crop" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="text-sm font-bold text-gray-800 group-hover:text-primaryDark">مراقبت مو</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-3 min-w-[90px] group cursor-pointer">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-primary/30 group-hover:border-primary group-hover:scale-105 transition shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1570194065650-d99546dd31ed?q=80&w=200&auto=format&fit=crop" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="text-sm font-bold text-gray-800 group-hover:text-primaryDark">روغن صورت</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-3 min-w-[90px] group cursor-pointer">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-primary/30 group-hover:border-primary group-hover:scale-105 transition shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=200&auto=format&fit=crop" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="text-sm font-bold text-gray-800 group-hover:text-primaryDark">پکیج ماساژ</span>
+            </div>
+
+             <div class="flex flex-col items-center gap-3 min-w-[90px] group cursor-pointer">
+                <div class="w-20 h-20 rounded-full p-1 border-2 border-primary/30 group-hover:border-primary group-hover:scale-105 transition shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1611094605655-4cc6932a392a?q=80&w=200&auto=format&fit=crop" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="text-sm font-bold text-gray-800 group-hover:text-primaryDark">آروماتراپی</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-12 mb-8 border-y border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-black">پرفروش‌ترین روغن‌ها</h2>
+                    <p class="text-sm font-medium text-gray-600 mt-2">انتخاب مشتریان راضی ما بر اساس نظرات</p>
+                </div>
+                <a href="#" class="text-primaryDark text-sm font-bold hover:text-black transition flex items-center gap-1">مشاهده همه <i class="fas fa-angle-left"></i></a>
+            </div>
+
+            <div class="swiper productSwiper pb-10">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white rounded-xl overflow-hidden relative group h-full flex flex-col">
+                            <span class="absolute top-3 right-3 bg-danger text-white text-sm font-bold px-2 py-1 rounded shadow-md z-10">۲۰٪</span>
+                            
+                            <div class="h-52 overflow-hidden relative bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+
+                            <div class="p-4 flex flex-col flex-1">
+                                <h3 class="font-bold text-gray-900 text-base mb-2 line-clamp-2 leading-relaxed">روغن آرگان مراکشی خالص (اکسترا ویرجین)</h3>
+                                
+                                <div class="flex items-center gap-1 text-yellow-500 text-xs mb-4">
+                                    <i class="fas fa-star"></i><span class="text-gray-900 font-bold ml-1 text-sm">۴.۵</span> <span class="text-gray-500 font-medium">(۴۵ نظر)</span>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <div class="flex flex-col items-start mb-2">
+                                        <div class="text-gray-500 text-sm line-through decoration-red-500/50 decoration-2 font-medium">۴۵۰,۰۰۰</div>
+                                        <div class="text-gray-900 font-black text-xl">۳۶۰,۰۰۰ <span class="text-xs font-bold text-gray-600">تومان</span></div>
+                                    </div>
+                                    
+                                    <button class="w-full border-2 border-primary text-primaryDark font-bold py-2 rounded-lg hover:bg-primary hover:text-white transition mt-2 text-sm">
+                                        افزودن به سبد
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white rounded-xl overflow-hidden relative group h-full flex flex-col">
+                            <div class="h-52 overflow-hidden relative bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <h3 class="font-bold text-gray-900 text-base mb-2 line-clamp-2 leading-relaxed">روغن خراطین اصل (حجم دهنده)</h3>
+                                <div class="flex items-center gap-1 text-yellow-500 text-xs mb-4">
+                                    <i class="fas fa-star"></i><span class="text-gray-900 font-bold ml-1 text-sm">۴.۰</span> <span class="text-gray-500 font-medium">(۱۲ نظر)</span>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="flex flex-col items-start mb-2">
+                                         <div class="h-5"></div>
+                                        <div class="text-gray-900 font-black text-xl">۲۱۰,۰۰۰ <span class="text-xs font-bold text-gray-600">تومان</span></div>
+                                    </div>
+                                    <button class="w-full border-2 border-primary text-primaryDark font-bold py-2 rounded-lg hover:bg-primary hover:text-white transition mt-2 text-sm">
+                                        افزودن به سبد
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white rounded-xl overflow-hidden relative group h-full flex flex-col">
+                            <span class="absolute top-3 right-3 bg-danger text-white text-sm font-bold px-2 py-1 rounded shadow-md z-10">۱۵٪</span>
+                            <div class="h-52 overflow-hidden relative bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <h3 class="font-bold text-gray-900 text-base mb-2 line-clamp-2 leading-relaxed">سرم موی روغن ماکادمیا تقویت کننده</h3>
+                                <div class="flex items-center gap-1 text-yellow-500 text-xs mb-4">
+                                    <i class="fas fa-star"></i><span class="text-gray-900 font-bold ml-1 text-sm">۴.۸</span> <span class="text-gray-500 font-medium">(۸۹ نظر)</span>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="flex flex-col items-start mb-2">
+                                        <div class="text-gray-500 text-sm line-through decoration-red-500/50 decoration-2 font-medium">۸۰۰,۰۰۰</div>
+                                        <div class="text-gray-900 font-black text-xl">۶۸۰,۰۰۰ <span class="text-xs font-bold text-gray-600">تومان</span></div>
+                                    </div>
+                                    <button class="w-full border-2 border-primary text-primaryDark font-bold py-2 rounded-lg hover:bg-primary hover:text-white transition mt-2 text-sm">
+                                        افزودن به سبد
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white rounded-xl overflow-hidden relative group h-full flex flex-col">
+                            <div class="h-52 overflow-hidden relative bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1599423300746-b6250726f996?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <h3 class="font-bold text-gray-900 text-base mb-2 line-clamp-2 leading-relaxed">روغن سیاه دانه (ضد درد مفاصل)</h3>
+                                <div class="flex items-center gap-1 text-yellow-500 text-xs mb-4">
+                                    <i class="fas fa-star"></i><span class="text-gray-900 font-bold ml-1 text-sm">۳.۵</span> <span class="text-gray-500 font-medium">(۵ نظر)</span>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="flex flex-col items-start mb-2">
+                                        <div class="h-5"></div>
+                                        <div class="text-gray-900 font-black text-xl">۱۵۰,۰۰۰ <span class="text-xs font-bold text-gray-600">تومان</span></div>
+                                    </div>
+                                    <button class="w-full border-2 border-primary text-primaryDark font-bold py-2 rounded-lg hover:bg-primary hover:text-white transition mt-2 text-sm">
+                                        افزودن به سبد
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination !-bottom-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8 text-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-1">
+                    <span class="text-2xl font-black text-black block mb-4">MALAKOOTI</span>
+                    <p class="text-gray-600 text-sm leading-8 font-medium text-justify">
+                        فروشگاه اینترنتی ملکوتی، با هدف ارائه محصولات ارگانیک و طبیعی برای سلامت پوست و مو تاسیس شده است. ما اصالت تمامی کالاها را تضمین می‌کنیم.
+                    </p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition text-lg"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-500 hover:text-white transition text-lg"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-green-500 hover:text-white transition text-lg"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-extrabold text-black mb-5 text-lg">دسترسی سریع</h5>
+                    <ul class="space-y-4 text-sm font-medium text-gray-600">
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">پیگیری سفارش</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">تماس با ما</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">درباره ما</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">قوانین و مقررات</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-extrabold text-black mb-5 text-lg">محصولات</h5>
+                    <ul class="space-y-4 text-sm font-medium text-gray-600">
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">روغن‌های درمانی</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">زیبایی صورت</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">تقویت مو و ابرو</a></li>
+                        <li><a href="#" class="hover:text-primaryDark transition block hover:translate-x-1 duration-200">پک‌های هدیه</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center md:items-start">
+                    <h5 class="font-extrabold text-black mb-5 text-lg">مجوزها</h5>
+                    <div class="flex gap-3">
+                        <div class="w-24 h-28 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-xs text-center p-2 hover:border-primary transition cursor-pointer">
+                            نماد اعتماد الکترونیکی
+                        </div>
+                        <div class="w-24 h-28 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-xs text-center p-2 hover:border-primary transition cursor-pointer">
+                            نشان ملی ثبت
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8 text-center text-gray-500 font-medium text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>تمامی حقوق این سایت متعلق به فروشگاه ملکوتی می‌باشد © ۱۴۰۴</p>
+                <p>طراحی و توسعه با ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50 px-6 py-2 md:hidden flex justify-between items-center shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+        <a href="#" class="flex flex-col items-center gap-1 text-primaryDark font-bold">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-[10px]">خانه</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primaryDark transition font-medium">
+            <i class="fas fa-th-large text-xl"></i>
+            <span class="text-[10px]">دسته‌ها</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primaryDark transition relative font-medium">
+            <div class="absolute -top-1 -right-1 bg-danger text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">۲</div>
+            <i class="fas fa-shopping-basket text-xl"></i>
+            <span class="text-[10px]">سبد خرید</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primaryDark transition font-medium">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-[10px]">پروفایل</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // اسلایدر اصلی
+        new Swiper(".mainSlider", {
+            loop: true,
+            autoplay: { delay: 5000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+
+        // اسلایدر محصولات
+        new Swiper(".productSwiper", {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            breakpoints: {
+                640: { slidesPerView: 2.2, spaceBetween: 20 },
+                768: { slidesPerView: 3.2, spaceBetween: 24 },
+                1024: { slidesPerView: 4, spaceBetween: 24 },
+            },
+            pagination: { el: ".swiper-pagination", clickable: true, dynamicBullets: true },
+        });
+    </script>
+</body>
+</html>
